@@ -22,11 +22,47 @@ class OneShot(ApiCall):
             "color": cfg['color'],
             "ramp": cfg['ramp'],
             "hold": cfg['hold'],
-            "fade": cfg['fade']
+            "fade": cfg['fade'],
+            "brightness": cfg['brightness']
         }
 
     def process(self, midi_msg):
-        requests.put(self._api, json=self._put_json)
+        print(requests.put(self._api, json=self._put_json))
+
+
+class Ripple(ApiCall):
+    def __init__(self, cfg: Dict):
+        super().__init__(cfg['host'])
+        self._virtual = cfg['virtual_id']
+        self._api = self._host + '/api/virtuals_tools/' + self._virtual
+        self._put_json = {
+            "tool": "ripple",
+            "color": cfg['color'],
+            "ramp": cfg['ramp'],
+            "hold": cfg['hold'],
+            "fade": cfg['fade'],
+            "probability": cfg['probability'],
+            "brightness": cfg['brightness']
+        }
+
+    def process(self, midi_msg):
+        print(requests.put(self._api, json=self._put_json))
+
+
+class Wave(ApiCall):
+    def __init__(self, cfg: Dict):
+        super().__init__(cfg['host'])
+        self._virtual = cfg['virtual_id']
+        self._api = self._host + '/api/virtuals_tools/' + self._virtual
+        self._put_json = {
+            "tool": "wave",
+            "color": cfg['color'],
+            "timestep": cfg['timestep'],
+            "pixel_step": cfg['pixel_step']
+        }
+
+    def process(self, midi_msg):
+        print(requests.put(self._api, json=self._put_json))
 
 
 class AdjustBrightness(ApiCall):
