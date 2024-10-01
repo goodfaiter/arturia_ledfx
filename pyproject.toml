@@ -1,0 +1,38 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "arturia_ledfx"
+version = "1.0.0"
+license = { file = "LICENSE" }
+authors = [
+    { name = "Valentin Yuryev", email = "valentin.yuryev@gmail.com" },
+]
+maintainers = [
+    { name = "Valentin Yuryev", email = "valentin.yuryev@gmail.com" }
+]
+description = "Library to interface Arturia MIDI keyboard with ledfx."
+readme = "README.md"
+requires-python = ">=3.10"
+classifiers = [
+    # How mature is this project? Common values are
+    #   3 - Alpha
+    #   4 - Beta
+    #   5 - Production/Stable
+    "Development Status :: 4 - Beta",
+    # Indicate who your project is intended for
+    "Intended Audience :: Developers",
+    # Pick your license as you wish (see also "license" above)
+    "License :: OSI Approved :: MIT License",
+    # Specify the Python versions you support here.
+    "Programming Language :: Python :: 3.10",
+]
+dependencies = [
+    "mido ~=1.3.0",
+    "PyYAML ~=6.0.1",
+    "requests ~=2.31.0",
+]
+
+[project.scripts]
+arturia_ledfx_run = "arturia_ledfx.main:main"

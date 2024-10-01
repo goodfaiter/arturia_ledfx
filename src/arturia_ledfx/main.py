@@ -1,12 +1,17 @@
-import requests
+import argparse
 import json
-from src.runner import InputProcessor
+import requests
+from arturia_ledfx.runner import InputProcessor
 
 
 MIDI_HOST = 'Arturia MiniLab mkII MIDI 1'
 
 
 def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("-c", "--config", type=str)
+    args = parser.parse_args()
+
     try:
         api_url = "http://localhost:8888/api/virtuals"
         response = requests.get(api_url)
@@ -15,9 +20,5 @@ def main():
         print(e)
 
     runner = InputProcessor(MIDI_HOST)
-    runner.load_from_yaml('config/config.yaml')
+    runner.load_from_yaml(args.config)
     runner.run()
-
-
-if __name__ == "__main__":
-    main()
