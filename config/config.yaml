@@ -6,32 +6,10 @@
   api_calls:
     - AdjustBrightness:
         host: 'http://localhost:8888'
-        virtual_id: 'top1'
+        virtual_id: 'main'
     - AdjustBrightness:
         host: 'http://localhost:8888'
-        virtual_id: 'top2'
-- type: 'control_change'
-  channel: 0
-  note: null
-  control: 71
-  api_calls:
-    - AdjustBrightness:
-        host: 'http://localhost:8888'
-        virtual_id: 'triangle1'
-    - AdjustBrightness:
-        host: 'http://localhost:8888'
-        virtual_id: 'cloud1'
-- type: 'control_change'
-  channel: 0
-  note: null
-  control: 76
-  api_calls:
-    - AdjustBrightness:
-        host: 'http://localhost:8888'
-        virtual_id: 'ufo1'
-
-
-
+        virtual_id: 'secondary'
 
 # Buttons
 - type: 'note_on'
@@ -41,15 +19,15 @@
   api_calls:
     - SwitchToEffectAndPreset:
         host: 'http://localhost:8888'
-        virtual_id: 'triangle1'
+        virtual_id: 'main'
         category: 'user_presets'
         effect_id: 'strobe'
-        preset_id: '1'
+        preset_id: '1'  # This needs to be saved as '1' in LedFX
     - SwitchToEffectAndPreset:
         host: 'http://localhost:8888'
-        virtual_id: 'cloud1'
+        virtual_id: 'secondary'
         category: 'user_presets'
-        effect_id: 'strobe'
+        effect_id: 'bar'
         preset_id: '1'
 - type: 'note_on'
   channel: 9
@@ -58,130 +36,15 @@
   api_calls:
     - SwitchToEffectAndPreset:
         host: 'http://localhost:8888'
-        virtual_id: 'triangle1'
+        virtual_id: 'main'
         category: 'user_presets'
         effect_id: 'bar'
         preset_id: '1'
     - SwitchToEffectAndPreset:
         host: 'http://localhost:8888'
-        virtual_id: 'cloud1'
+        virtual_id: 'secondary'
         category: 'user_presets'
         effect_id: 'bar'
-        preset_id: '1'
-- type: 'note_on'
-  channel: 9
-  note: 38
-  control: null
-  api_calls:
-    - SwitchToEffectAndPreset:
-        host: 'http://localhost:8888'
-        virtual_id: 'triangle1'
-        category: 'user_presets'
-        effect_id: 'energy'
-        preset_id: '1'
-    - SwitchToEffectAndPreset:
-        host: 'http://localhost:8888'
-        virtual_id: 'cloud1'
-        category: 'user_presets'
-        effect_id: 'energy'
-        preset_id: '1'
-- type: 'note_on'
-  channel: 9
-  note: 39
-  control: null
-  api_calls:
-    - SwitchToEffectAndPreset:
-        host: 'http://localhost:8888'
-        virtual_id: 'triangle1'
-        category: 'user_presets'
-        effect_id: 'pitchSpectrum'
-        preset_id: '1'
-    - SwitchToEffectAndPreset:
-        host: 'http://localhost:8888'
-        virtual_id: 'cloud1'
-        category: 'user_presets'
-        effect_id: 'pitchSpectrum'
-        preset_id: '1'
-    - SwitchToEffectAndPreset:
-        host: 'http://localhost:8888'
-        virtual_id: 'top1'
-        category: 'user_presets'
-        effect_id: 'melt_and_sparkle'
-        preset_id: '1'
-    - SwitchToEffectAndPreset:
-        host: 'http://localhost:8888'
-        virtual_id: 'top2'
-        category: 'user_presets'
-        effect_id: 'melt_and_sparkle'
-        preset_id: '1'
-
-- type: 'note_on'
-  channel: 9
-  note: 40
-  control: null
-  api_calls:
-    - SwitchToEffectAndPreset:
-        host: 'http://localhost:8888'
-        virtual_id: 'top1'
-        category: 'user_presets'
-        effect_id: 'rain'
-        preset_id: '1'
-    - SwitchToEffectAndPreset:
-        host: 'http://localhost:8888'
-        virtual_id: 'top2'
-        category: 'user_presets'
-        effect_id: 'rain'
-        preset_id: '1'
-- type: 'note_on'
-  channel: 9
-  note: 41
-  control: null
-  api_calls:
-    - SwitchToEffectAndPreset:
-        host: 'http://localhost:8888'
-        virtual_id: 'top1'
-        category: 'user_presets'
-        effect_id: 'pitchSpectrum'
-        preset_id: '1'
-    - SwitchToEffectAndPreset:
-        host: 'http://localhost:8888'
-        virtual_id: 'top2'
-        category: 'user_presets'
-        effect_id: 'pitchSpectrum'
-        preset_id: '1'
-- type: 'note_on'
-  channel: 9
-  note: 42
-  control: null
-  api_calls:
-    - SwitchToEffectAndPreset:
-        host: 'http://localhost:8888'
-        virtual_id: 'top1'
-        category: 'user_presets'
-        effect_id: 'scroll'
-        preset_id: '1'
-    - SwitchToEffectAndPreset:
-        host: 'http://localhost:8888'
-        virtual_id: 'top2'
-        category: 'user_presets'
-        effect_id: 'scroll'
-        preset_id: '1'
-- type: 'note_on'
-  channel: 9
-  note: 43
-  control: null
-  api_calls:
-    - SwitchToEffectAndPreset:
-        host: 'http://localhost:8888'
-        virtual_id: 'top1'
-        category: 'user_presets'
-        effect_id: 'scan_and_flare'
-        preset_id: '1'
-    - SwitchToEffectAndPreset:
-        host: 'http://localhost:8888'
-        virtual_id: 'top2'
-        category: 'user_presets'
-        effect_id: 'scan_and_flare'
         preset_id: '1'
 
 # Keyboard Oneshot
@@ -192,7 +55,7 @@
   api_calls:
     - OneShot:
         host: 'http://localhost:8888'
-        virtual_id: 'triangle1'
+        virtual_id: 'main'
         color: 'white'
         ramp: 10
         hold: 0
@@ -200,107 +63,12 @@
         brightness: 1.0
     - OneShot:
         host: 'http://localhost:8888'
-        virtual_id: 'cloud1'
-        color: 'white'
-        ramp: 10
-        hold: 0
-        fade: 200
-        brightness: 1.0
-    - OneShot:
-        host: 'http://localhost:8888'
-        virtual_id: 'top1'
-        color: 'white'
-        ramp: 10
-        hold: 0
-        fade: 200
-        brightness: 1.0
-    - OneShot:
-        host: 'http://localhost:8888'
-        virtual_id: 'top2'
-        color: 'white'
-        ramp: 10
-        hold: 0
-        fade: 200
-        brightness: 1.0
-- type: 'note_on'
-  channel: 0
-  note: 50
-  control: null
-  api_calls:
-    - OneShot:
-        host: 'http://localhost:8888'
-        virtual_id: 'triangle1'
+        virtual_id: 'secondary'
         color: 'red'
         ramp: 10
         hold: 0
         fade: 200
         brightness: 1.0
-    - OneShot:
-        host: 'http://localhost:8888'
-        virtual_id: 'cloud1'
-        color: 'red'
-        ramp: 10
-        hold: 0
-        fade: 200
-        brightness: 1.0
-    - OneShot:
-        host: 'http://localhost:8888'
-        virtual_id: 'top1'
-        color: 'red'
-        ramp: 10
-        hold: 0
-        fade: 200
-        brightness: 1.0
-    - OneShot:
-        host: 'http://localhost:8888'
-        virtual_id: 'top2'
-        color: 'red'
-        ramp: 10
-        hold: 0
-        fade: 200
-        brightness: 1.0
-- type: 'note_on'
-  channel: 0
-  note: 52
-  control: null
-  api_calls:
-    - OneShot:
-        host: 'http://localhost:8888'
-        virtual_id: 'triangle1'
-        color: 'yellow'
-        ramp: 10
-        hold: 0
-        fade: 200
-        brightness: 1.0
-    - OneShot:
-        host: 'http://localhost:8888'
-        virtual_id: 'cloud1'
-        color: 'yellow'
-        ramp: 10
-        hold: 0
-        fade: 200
-        brightness: 1.0
-    - OneShot:
-        host: 'http://localhost:8888'
-        virtual_id: 'top1'
-        color: 'yellow'
-        ramp: 10
-        hold: 0
-        fade: 200
-        brightness: 1.0
-    - OneShot:
-        host: 'http://localhost:8888'
-        virtual_id: 'top2'
-        color: 'yellow'
-        ramp: 10
-        hold: 0
-        fade: 200
-        brightness: 1.0'
-
-
-
-
-
 
 # Keyboard Ripple
 - type: 'note_on'
@@ -310,7 +78,7 @@
   api_calls:
     - Ripple:
         host: 'http://localhost:8888'
-        virtual_id: 'triangle1'
+        virtual_id: 'main'
         color: 'white'
         ramp: 10
         hold: 0
@@ -319,123 +87,13 @@
         brightness: 1.0
     - Ripple:
         host: 'http://localhost:8888'
-        virtual_id: 'cloud1'
-        color: 'white'
-        ramp: 10
-        hold: 0
-        fade: 3000
-        probability: 0.1
-        brightness: 1.0
-    - Ripple:
-        host: 'http://localhost:8888'
-        virtual_id: 'top1'
-        color: 'white'
-        ramp: 10
-        hold: 0
-        fade: 3000
-        probability: 0.1
-        brightness: 1.0
-    - Ripple:
-        host: 'http://localhost:8888'
-        virtual_id: 'top2'
-        color: 'white'
-        ramp: 10
-        hold: 0
-        fade: 3000
-        probability: 0.1
-        brightness: 1.0
-- type: 'note_on'
-  channel: 0
-  note: 57
-  control: null
-  api_calls:
-    - Ripple:
-        host: 'http://localhost:8888'
-        virtual_id: 'triangle1'
-        color: 'purple'
-        ramp: 10
-        hold: 0
-        fade: 3000
-        probability: 0.1
-        brightness: 1.0
-    - Ripple:
-        host: 'http://localhost:8888'
-        virtual_id: 'cloud1'
-        color: 'purple'
-        ramp: 10
-        hold: 0
-        fade: 3000
-        probability: 0.1
-        brightness: 1.0
-    - Ripple:
-        host: 'http://localhost:8888'
-        virtual_id: 'top1'
-        color: 'purple'
-        ramp: 10
-        hold: 0
-        fade: 3000
-        probability: 0.1
-        brightness: 1.0
-    - Ripple:
-        host: 'http://localhost:8888'
-        virtual_id: 'top2'
-        color: 'purple'
-        ramp: 10
-        hold: 0
-        fade: 3000
-        probability: 0.1
-        brightness: 1.0
-    - Ripple:
-        host: 'http://localhost:8888'
-        virtual_id: 'top2'
-        color: 'purple'
-        ramp: 10
-        hold: 0
-        fade: 3000
-        probability: 0.1
-        brightness: 1.0
-- type: 'note_on'
-  channel: 0
-  note: 59
-  control: null
-  api_calls:
-    - Ripple:
-        host: 'http://localhost:8888'
-        virtual_id: 'triangle1'
+        virtual_id: 'secondary'
         color: 'yellow'
         ramp: 10
         hold: 0
         fade: 3000
         probability: 0.1
         brightness: 1.0
-    - Ripple:
-        host: 'http://localhost:8888'
-        virtual_id: 'cloud1'
-        color: 'yellow'
-        ramp: 10
-        hold: 0
-        fade: 3000
-        probability: 0.1
-        brightness: 1.0
-    - Ripple:
-        host: 'http://localhost:8888'
-        virtual_id: 'top1'
-        color: 'yellow'
-        ramp: 10
-        hold: 0
-        fade: 3000
-        probability: 0.1
-        brightness: 1.0
-    - Ripple:
-        host: 'http://localhost:8888'
-        virtual_id: 'top2'
-        color: 'yellow'
-        ramp: 10
-        hold: 0
-        fade: 3000
-        probability: 0.1
-        brightness: 1.0
-
 
 # Keyboard Wave
 - type: 'note_on'
@@ -445,73 +103,14 @@
   api_calls:
     - Wave:
         host: 'http://localhost:8888'
-        virtual_id: 'top1'
+        virtual_id: 'main'
         color: 'white'
         pixel_step: 5
         timestep: 0.05
         brightness: 1.0
     - Wave:
         host: 'http://localhost:8888'
-        virtual_id: 'top2'
-        color: 'white'
-        pixel_step: 5
-        timestep: 0.05
-        brightness: 1.0
-    - Wave:
-        host: 'http://localhost:8888'
-        virtual_id: 'cloud1'
-        color: 'white'
-        pixel_step: 5
-        timestep: 0.05
-        brightness: 1.0
-- type: 'note_on'
-  channel: 0
-  note: 67
-  control: null
-  api_calls:
-    - Wave:
-        host: 'http://localhost:8888'
-        virtual_id: 'top1'
-        color: 'purple'
-        pixel_step: 5
-        timestep: 0.05
-        brightness: 1.0
-    - Wave:
-        host: 'http://localhost:8888'
-        virtual_id: 'top2'
-        color: 'purple'
-        pixel_step: 5
-        timestep: 0.05
-        brightness: 1.0
-    - Wave:
-        host: 'http://localhost:8888'
-        virtual_id: 'cloud1'
-        color: 'purple'
-        pixel_step: 5
-        timestep: 0.05
-        brightness: 1.0
-- type: 'note_on'
-  channel: 0
-  note: 69
-  control: null
-  api_calls:
-    - Wave:
-        host: 'http://localhost:8888'
-        virtual_id: 'top1'
-        color: 'yellow'
-        pixel_step: 5
-        timestep: 0.05
-        brightness: 1.0
-    - Wave:
-        host: 'http://localhost:8888'
-        virtual_id: 'top2'
-        color: 'yellow'
-        pixel_step: 5
-        timestep: 0.05
-        brightness: 1.0
-    - Wave:
-        host: 'http://localhost:8888'
-        virtual_id: 'cloud1'
+        virtual_id: 'secondary'
         color: 'yellow'
         pixel_step: 5
         timestep: 0.05
@@ -525,23 +124,15 @@
   api_calls:
     - Wave:
         host: 'http://localhost:8888'
-        virtual_id: 'top1'
+        virtual_id: 'main'
         color: 'white'
         pixel_step: 2
         timestep: 0.05
         brightness: 1.0
     - Wave:
         host: 'http://localhost:8888'
-        virtual_id: 'top2'
+        virtual_id: 'secondary'
         color: 'white'
         pixel_step: 2
         timestep: 0.05
         brightness: 1.0
-    - Wave:
-        host: 'http://localhost:8888'
-        virtual_id: 'cloud1'
-        color: 'white'
-        pixel_step: 2
-        timestep: 0.05
-        brightness: 1.0
-
