@@ -7,6 +7,11 @@ from .midi_inputs import MidiInput
 
 
 def str_to_class(class_name):
+    """Turns string class name into python object. Requires all objects to be added above even if not used.
+
+    :param class_name: Name of the class.
+    :return: object definition.
+    """
     return getattr(sys.modules[__name__], class_name)
 
 
@@ -20,6 +25,10 @@ class InputProcessor:
         self._midi_triggers: Dict[MidiInput, List[ApiCall]] = {}
 
     def load_from_yaml(self, file_path: str):
+        """Load all API call triggers through `.yaml` file.
+
+        :param file_path: FIle path to the yaml file.
+        """
         with open(file_path, 'r') as f:
             output = yaml.safe_load(f)
         for midi_input in output:
@@ -38,6 +47,10 @@ class InputProcessor:
         self._midi_triggers[midi_input] = api_calls
 
     def run(self):
+        """Run the main midi to API call processing thread.
+
+        In case of api call errors, we do not exit but continue running.
+        """
         with mido.open_input(self._midi_port) as in_port:
             for msg in in_port:
                 for midi_input, api_calls in self._midi_triggers.items():

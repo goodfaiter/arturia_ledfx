@@ -5,15 +5,27 @@ import requests
 
 class ApiCall(ABC):
     def __init__(self, host: str):
+        """Base class from API calls to LedFX.
+
+        :param host: Host name of the LedFX to be addressed.
+        """
         self._host = host
 
     @abstractmethod
     def process(self, midi_msg):
+        """Process midi input into REST API.
+
+        :param midi_msg: midi_msg container to process and turn into REST API.
+        """
         raise NotImplementedError("Please Implement this method")
 
 
 class OneShot(ApiCall):
     def __init__(self, cfg: Dict):
+        """Calls oneshot API on process call.
+
+        :param cfg: API call configurations such as virtual_id, brightness etc.
+        """
         super().__init__(cfg['host'])
         self._virtual = cfg['virtual_id']
         self._api = self._host + '/api/virtuals_tools/' + self._virtual
@@ -32,6 +44,10 @@ class OneShot(ApiCall):
 
 class Ripple(ApiCall):
     def __init__(self, cfg: Dict):
+        """Calls ripple API on process call.
+
+        :param cfg: API call configurations such as virtual_id, brightness etc.
+        """
         super().__init__(cfg['host'])
         self._virtual = cfg['virtual_id']
         self._api = self._host + '/api/virtuals_tools/' + self._virtual
@@ -51,6 +67,10 @@ class Ripple(ApiCall):
 
 class Wave(ApiCall):
     def __init__(self, cfg: Dict):
+        """Calls wave API on process call.
+
+        :param cfg: API call configurations such as virtual_id, brightness etc.
+        """
         super().__init__(cfg['host'])
         self._virtual = cfg['virtual_id']
         self._api = self._host + '/api/virtuals_tools/' + self._virtual
@@ -67,6 +87,12 @@ class Wave(ApiCall):
 
 class AdjustBrightness(ApiCall):
     def __init__(self, cfg: Dict):
+        """Calls brightness adjustment API on process call.
+
+        Note that we only process Nth process request due to too frequent process() call from midi otherwise.
+
+        :param cfg: API call configurations such as virtual_id etc.
+        """
         super().__init__(cfg['host'])
         self._virtual = cfg['virtual_id']
         self._api = self._host + '/api/virtuals/' + self._virtual + '/effects'
@@ -88,6 +114,12 @@ class AdjustBrightness(ApiCall):
 
 
 class SwitchToEffect(ApiCall):
+    """Calls effect adjustment API on process call.
+
+    Note that in this case, preset is not set, and it will use the default.
+
+    :param cfg: API call configurations such as virtual_id etc.
+    """
     def __init__(self, cfg: Dict):
         super().__init__(cfg['host'])
         self._virtual = cfg['virtual_id']
@@ -101,6 +133,12 @@ class SwitchToEffect(ApiCall):
 
 
 class SwitchToEffectAndPreset(ApiCall):
+    """Calls effect adjustment API on process call.
+
+    Note that in this case, we first read out current brightness and then set it to the new effect to keep it the same.
+
+    :param cfg: API call configurations such as virtual_id etc.
+    """
     def __init__(self, cfg: Dict):
         super().__init__(cfg['host'])
         self._virtual = cfg['virtual_id']
